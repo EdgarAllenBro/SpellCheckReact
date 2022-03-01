@@ -4,6 +4,8 @@
 }
 .spellsBox{
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     width:50vw;
     height:75vh;
     flex-wrap: wrap;
@@ -15,6 +17,10 @@
     height:20px;
     margin:5px;
     border:3px double black;
+    padding:0px;
+}
+.spell:hover{
+    cursor: pointer;
 }
 
 .detailsBox{
