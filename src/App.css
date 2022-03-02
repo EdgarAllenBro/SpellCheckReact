@@ -1,3 +1,7 @@
+p{
+    margin: 10px;
+}
+
 
 #book{
     display: flex;
@@ -22,11 +26,19 @@
 .spell:hover{
     cursor: pointer;
 }
-
+#spellTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .detailsBox{
     width:50vw;
     height:75vh;
     flex-wrap: wrap;
-    border:10px double brown;
-    overflow: scroll; 
+    border:10px double brown; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: scroll;
 }

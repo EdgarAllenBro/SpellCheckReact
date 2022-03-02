@@ -6,6 +6,7 @@ function App() {
   const [filteredSpells,setFilter] = useState([])
   const [details,setDetails] = useState([])
   const [spellName,setSpellName] = useState('')
+  const [spellSchool,setSchool] = useState('')
 const filter = (event)=>{
   let name = event.target.value
 setFilter(spells.filter(spell => spell.includes(name.charAt(0).toUpperCase()+name.slice(1))))
@@ -22,13 +23,16 @@ fetch('https://www.dnd5eapi.co/api/spells')
         setSpells(spellNames)
       }).catch(err=>console.log(err))
     },[])
+
+
 const searchFor = (event)=>{
-  const search = event.target.innerHTML.toLowerCase().replace(/\s/g,'-').replace(/\//g,'-')
+  const search = event.target.innerHTML.toLowerCase().replace(/\s/g,'-').replace(/\//g,'-').replace(/'/g,'')
   fetch(`https://www.dnd5eapi.co/api/spells/${search}`)
   .then(res => res.json())
   .then(results => { 
     setDetails(results.desc)
     setSpellName(results.name)
+    setSchool(results.school.name)
   })
 }
 
@@ -43,8 +47,11 @@ return(
   })}
     </div>
     <div className='detailsBox'>
+    <div id='spellTitle'>
   <h2>{spellName}</h2>
-  <p>{details}</p>
+  <h4>{spellSchool}</h4>
+  </div>
+  <p id='spellDeets'>{details}</p>
     </div>
   </div>
   </div>
